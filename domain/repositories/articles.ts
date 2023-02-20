@@ -29,32 +29,3 @@ export async function getOne(id: number) {
     throw e;
   }
 }
-
-export function create(value: createValue) {
-  try {
-    fetch(`${url}/articles`, {
-      headers: {
-        "Content-type": "application/json",
-      },
-      method: "POST",
-      body: JSON.stringify(value),
-    });
-  } catch (e) {
-    throw e;
-  }
-}
-
-export async function update(id: number) {}
-
-export async function remove(id: number) {
-  try {
-    await fetch(`${url}/articles/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
-  } catch (e) {
-    throw e;
-  }
-}
