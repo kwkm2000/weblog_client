@@ -1,11 +1,51 @@
 import React from "react";
 import Head from "next/head";
-
 import Link from "next/link";
+import {
+  GetStaticPaths,
+  GetStaticProps,
+  GetStaticPropsContext,
+  NextPage,
+} from "next";
 import { useRouter } from "next/router";
 import * as Article from "../../domain/models/article";
 import { Articles } from "../../domain/repositories";
 import dayjs from "dayjs";
+import { ParsedUrlQuery } from "node:querystring";
+
+interface Params extends ParsedUrlQuery {
+  id: string;
+}
+
+interface Props {
+  article: Article.Model;
+}
+
+export const getStaticProps: GetStaticProps<Props, Params> = async ({
+  params,
+}: GetStaticPropsContext) => {
+  const article = await Articles.getOne(Number(params?.id));
+
+  return {
+    props: {
+      article,
+    },
+  };
+};
+export const getStaticPaths: GetStaticPaths<Params> = async () => {
+  const articles = await Articles.getALl();
+  const paths = articles.map((article) => {
+    const { id } = article;
+
+    return {
+      params: {
+        id: id.toString(),
+      },
+    };
+  });
+
+  return { paths, fallback: false };
+};
 
 export default function ArticleDetail() {
   const router = useRouter();
