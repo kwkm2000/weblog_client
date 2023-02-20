@@ -7,7 +7,6 @@ import {
   GetStaticPropsContext,
   NextPage,
 } from "next";
-import { useRouter } from "next/router";
 import * as Article from "../../domain/models/article";
 import { Articles } from "../../domain/repositories";
 import dayjs from "dayjs";
@@ -47,40 +46,11 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
   return { paths, fallback: false };
 };
 
-export default function ArticleDetail() {
-  const router = useRouter();
-  const [id, setId] = React.useState<string>();
-  const [article, setArticle] = React.useState<Article.Model>();
-  const getArticle = React.useCallback(async () => {
-    const article = await Articles.getOne(Number(id));
-    setArticle(article);
-  }, [setArticle, id]);
+export const ArticleDetail: NextPage<Props> = ({ article }) => {
   const dateFormat = React.useCallback(
     (date: Date) => dayjs().format("YYYY/MM/DD"),
     []
   );
-
-  React.useEffect(() => {
-    if (router.asPath !== router.route) {
-      const queryId = router.query.id;
-      if (!queryId || Array.isArray(queryId)) {
-        return;
-      }
-
-      setId(queryId);
-    }
-  }, [router]);
-
-  React.useEffect(() => {
-    if (!id) {
-      return;
-    }
-    getArticle();
-  }, [id, getArticle]);
-
-  if (!article) {
-    return;
-  }
 
   return (
     <>
@@ -103,4 +73,6 @@ export default function ArticleDetail() {
       </main>
     </>
   );
-}
+};
+
+export default ArticleDetail;
