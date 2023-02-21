@@ -11,9 +11,9 @@ jobs:
       contents: read
     steps:
       - uses: aws-actions/configure-aws-credentials@v1
+        env:
+          S3_BUCKET: ${{ secrets.AWS_S3_BUCKET_NAME }}
         with:
           aws-region: us-east-1
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/${{ secrets.IAM_ROLE_NAME }}
-
-      # プライベートな S3 バケットを読み取ってみる
-      - run: aws s3 ls s3://${{ secrets.AWS_S3_BUCKET_NAME }}
+      - run: aws s3 ls s3://$$S3_BUCKET
