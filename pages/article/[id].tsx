@@ -1,46 +1,56 @@
 import React from "react";
 import Head from "next/head";
-
 import Link from "next/link";
-import { useRouter } from "next/router";
+import {
+  GetStaticPaths,
+  GetStaticProps,
+  GetStaticPropsContext,
+  NextPage,
+} from "next";
 import * as Article from "../../domain/models/article";
 import { Articles } from "../../domain/repositories";
 import dayjs from "dayjs";
+import { ParsedUrlQuery } from "node:querystring";
 
-export default function ArticleDetail() {
-  const router = useRouter();
-  const [id, setId] = React.useState<string>();
-  const [article, setArticle] = React.useState<Article.Model>();
-  const getArticle = React.useCallback(async () => {
-    const article = await Articles.getOne(Number(id));
-    setArticle(article);
-  }, [setArticle, id]);
+interface Params extends ParsedUrlQuery {
+  id: string;
+}
+
+interface Props {
+  article: Article.Model;
+}
+
+export const getStaticProps: GetStaticProps<Props, Params> = async ({
+  params,
+}: GetStaticPropsContext) => {
+  const article = await Articles.getOne(Number(params?.id));
+
+  return {
+    props: {
+      article,
+    },
+  };
+};
+export const getStaticPaths: GetStaticPaths<Params> = async () => {
+  const articles = await Articles.getALl();
+  const paths = articles.map((article) => {
+    const { id } = article;
+
+    return {
+      params: {
+        id: id.toString(),
+      },
+    };
+  });
+
+  return { paths, fallback: false };
+};
+
+export const ArticleDetail: NextPage<Props> = ({ article }) => {
   const dateFormat = React.useCallback(
     (date: Date) => dayjs().format("YYYY/MM/DD"),
     []
   );
-
-  React.useEffect(() => {
-    if (router.asPath !== router.route) {
-      const queryId = router.query.id;
-      if (!queryId || Array.isArray(queryId)) {
-        return;
-      }
-
-      setId(queryId);
-    }
-  }, [router]);
-
-  React.useEffect(() => {
-    if (!id) {
-      return;
-    }
-    getArticle();
-  }, [id, getArticle]);
-
-  if (!article) {
-    return;
-  }
 
   return (
     <>
@@ -63,4 +73,6 @@ export default function ArticleDetail() {
       </main>
     </>
   );
-}
+};
+
+export default ArticleDetail;

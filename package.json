@@ -4,15 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/font": "13.1.6",
-    "@types/node": "18.14.0",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
     "dayjs": "^1.11.7",
     "draft-js": "^0.11.7",
     "eslint": "8.34.0",
@@ -23,6 +19,10 @@
     "typescript": "4.9.5"
   },
   "devDependencies": {
+    "@next/font": "13.1.6",
+    "@types/node": "18.14.0",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
     "@types/draft-js": "^0.11.10"
   }
 }
