@@ -34,6 +34,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <p>開発中</p>
         <h1>Memo（仮）</h1>
         <h2>Posts</h2>
         {articles.map((article) => {
