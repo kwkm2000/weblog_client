@@ -1,6 +1,7 @@
 import { Article, Articles } from "../models";
 
-const url = "http://localhost:4000";
+// const url = "http://localhost:4000";
+const url = "http://13.231.5.6:4000";
 
 export interface createValue {
   title: string;
