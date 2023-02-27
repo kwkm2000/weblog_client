@@ -11,6 +11,7 @@ import * as Article from "../../domain/models/article";
 import { Articles } from "../../domain/repositories";
 import dayjs from "dayjs";
 import { ParsedUrlQuery } from "node:querystring";
+import MainLayout from "../../components/Layout/MainLayout";
 
 interface Params extends ParsedUrlQuery {
   id: string;
@@ -60,7 +61,7 @@ export const ArticleDetail: NextPage<Props> = ({ article }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <MainLayout>
         <h2>{article.title}</h2>
         <p>{dateFormat(article.createdAt)}</p>
         {article.text.blocks.map((block) => {
@@ -70,7 +71,7 @@ export const ArticleDetail: NextPage<Props> = ({ article }) => {
         <p>
           <Link href="/">TOPへ</Link>
         </p>
-      </main>
+      </MainLayout>
     </>
   );
 };
