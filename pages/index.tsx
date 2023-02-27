@@ -2,13 +2,10 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import { Inter } from "@next/font/google";
-// import styles from "../styles/Home.module.css";
+import MainLayout from "../components/Layout/MainLayout/MainLayout";
 import { Articles } from "../domain/repositories";
 import { Article } from "../domain/models";
 import dayjs from "dayjs";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [articles, setArticles] = React.useState<Article.Model[]>([]);
@@ -33,9 +30,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <p>開発中</p>
-        <h1>Memo（仮）</h1>
+      <MainLayout>
         <h2>Posts</h2>
         {articles.map((article) => {
           return (
@@ -47,7 +42,7 @@ export default function Home() {
             </div>
           );
         })}
-      </main>
+      </MainLayout>
     </>
   );
 }
