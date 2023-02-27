@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import MainLayout from "../components/Layout/MainLayout";
+import MainLayout from "../components/Layout/MainLayout/MainLayout";
 import { Articles } from "../domain/repositories";
 import { Article } from "../domain/models";
 import dayjs from "dayjs";

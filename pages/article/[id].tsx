@@ -11,7 +11,7 @@ import * as Article from "../../domain/models/article";
 import { Articles } from "../../domain/repositories";
 import dayjs from "dayjs";
 import { ParsedUrlQuery } from "node:querystring";
-import MainLayout from "../../components/Layout/MainLayout";
+import MainLayout from "../../components/Layout/MainLayout/MainLayout";
 
 interface Params extends ParsedUrlQuery {
   id: string;

@@ -1,5 +1,6 @@
 import React from "react";
-import Header from "../Layout/Header";
+import Header from "../Header/Header";
+import styles from "./MainLayout.module.css";
 
 interface Props {
   children: React.ReactNode;
@@ -7,7 +8,7 @@ interface Props {
 
 export const MainLayout: React.FC<Props> = ({ children }) => {
   return (
-    <div className="">
+    <div className={styles.wrapper}>
       <Header />
       <main>{children}</main>
     </div>
