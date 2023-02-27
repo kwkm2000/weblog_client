@@ -2,7 +2,7 @@ name: Build React on S3
 on:
   push:
       branches:
-        - deploy
+        - main
 jobs:
   build:
     runs-on: ubuntu-latest
