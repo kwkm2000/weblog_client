@@ -12,6 +12,15 @@ interface Props {
   articles: Article.Model[];
 }
 
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const articles = await Articles.getALl();
+  return {
+    props: {
+      articles,
+    },
+  };
+};
+
 const Home: NextPage<Props> = ({ articles }) => {
   const dateFormat = React.useCallback(
     (date: Date) => dayjs().format("YYYY/MM/DD"),
@@ -41,11 +50,6 @@ const Home: NextPage<Props> = ({ articles }) => {
       </MainLayout>
     </>
   );
-};
-
-Home.getInitialProps = async () => {
-  const articles = await Articles.getALl();
-  return { articles };
 };
 
 export default Home;
