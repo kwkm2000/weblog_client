@@ -9,8 +9,8 @@ interface Props {
 }
 
 const ArticleBody: React.FC<Props> = ({ article }) => {
-  console.log(article.text);
   const markup = draftToHtml(article.text);
+
   return (
     <div className={styles.root}>
       <h2 className={styles.title}>{article.title}</h2>

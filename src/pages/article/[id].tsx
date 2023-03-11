@@ -7,7 +7,7 @@ import {
   NextPage,
 } from "next";
 import * as Article from "../../features/articles/models/article";
-import { Articles } from "../../domain/repositories";
+import { Articles } from "../../features/articles/repositories";
 import { ParsedUrlQuery } from "node:querystring";
 import MainLayout from "@/components/Layout/MainLayout/MainLayout";
 import ArticleBody from "@/features/articles/components/ArticleBody";
