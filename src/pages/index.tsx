@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import MainLayout from "@/components/Layout/MainLayout/MainLayout";
-import { Articles } from "@/domain/repositories";
+import { Articles } from "@/features/articles/repositories";
 import { Article } from "@/features/articles/models";
 import { GetStaticProps, NextPage } from "next";
 import ArticleList from "@/features/articles/components/ArticleList";
