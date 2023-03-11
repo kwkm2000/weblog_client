@@ -10,7 +10,7 @@ export const MainLayout: React.FC<Props> = ({ children }) => {
   return (
     <div className={styles.wrapper}>
       <Header />
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
     </div>
   );
 };

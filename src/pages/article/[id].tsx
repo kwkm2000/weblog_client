@@ -7,7 +7,7 @@ import {
   GetStaticPropsContext,
   NextPage,
 } from "next";
-import * as Article from "../../domain/models/article";
+import * as Article from "../../features/articles/models/article";
 import { Articles } from "../../domain/repositories";
 import dayjs from "dayjs";
 import { ParsedUrlQuery } from "node:querystring";
