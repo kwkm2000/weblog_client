@@ -1,11 +1,11 @@
 import React from "react";
 import Head from "next/head";
-import Link from "next/link";
 import MainLayout from "../components/Layout/MainLayout/MainLayout";
 import { Articles } from "../domain/repositories";
 import { Article } from "../domain/models";
 import { GetStaticProps, NextPage } from "next";
-import ArticleList from "../features/articles/components/ArticleList";
+// import ArticleList from "../features/articles/components/ArticleList";
+import ArticleList from "@/features/articles/components/ArticleList";
 
 interface Props {
   articles: Article.Model[];
@@ -30,7 +30,7 @@ const Home: NextPage<Props> = ({ articles }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainLayout>
-        <h2>Posts</h2>
+        <h2 style={{ marginBottom: 20 }}>Posts</h2>
         <ArticleList articles={articles} />
       </MainLayout>
     </>

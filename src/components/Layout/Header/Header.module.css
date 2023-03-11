@@ -11,3 +11,7 @@
 .logo {
     font-size: 28px;
 }
+
+.logo a {
+    color: #333;
+}
