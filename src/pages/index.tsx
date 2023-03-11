@@ -1,10 +1,9 @@
 import React from "react";
 import Head from "next/head";
-import MainLayout from "../components/Layout/MainLayout/MainLayout";
-import { Articles } from "../domain/repositories";
-import { Article } from "../domain/models";
+import MainLayout from "@/components/Layout/MainLayout/MainLayout";
+import { Articles } from "@/domain/repositories";
+import { Article } from "@/features/articles/models";
 import { GetStaticProps, NextPage } from "next";
-// import ArticleList from "../features/articles/components/ArticleList";
 import ArticleList from "@/features/articles/components/ArticleList";
 
 interface Props {
