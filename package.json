@@ -14,7 +14,7 @@
     "dayjs": "^1.11.7",
     "draft-js": "^0.11.7",
     "draftjs-to-html": "^0.9.1",
-    "eslint": "8.35.0",
+    "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "next": "13.2.4",
     "react": "18.2.0",
