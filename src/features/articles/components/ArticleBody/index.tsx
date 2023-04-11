@@ -14,6 +14,7 @@ const ArticleBody: React.FC<Props> = ({ article }) => {
   return (
     <div className={styles.root}>
       <h2 className={styles.title}>{article.title}</h2>
+
       <p className={styles.date}>{formatDate(article.createdAt)}</p>
       <div
         className={styles.body}
