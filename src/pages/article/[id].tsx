@@ -31,6 +31,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
     },
   };
 };
+
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
   const articles = await Articles.getALl();
   const paths = articles.map((article) => {
