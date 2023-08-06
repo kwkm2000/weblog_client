@@ -1,10 +1,7 @@
-.wrapper {
+.wrapper {}
 
-
-  }
-
-  .main {
-    max-width: 620px;
-    margin: 0 auto;
-    padding: 20px 10px;
-  }
+.main {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 20px 10px;
+}
