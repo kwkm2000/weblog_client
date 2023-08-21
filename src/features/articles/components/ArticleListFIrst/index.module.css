@@ -1,0 +1,16 @@
+.link {
+  display: flex;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 300px;
+  height: 180px;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.text {
+}

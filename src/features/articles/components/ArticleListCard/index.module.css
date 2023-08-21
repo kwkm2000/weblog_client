@@ -1,0 +1,10 @@
+.articleListImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+}
+
+.articleListImage {
+  object-fit: cover;
+}
+
