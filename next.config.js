@@ -13,6 +13,7 @@ const nextConfig = {
         pathname: "/**/**",
       },
     ],
+    unoptimized: true,
   },
   webpack(config, options) {
     config.resolve.alias["@"] = path.join(__dirname, "src");
