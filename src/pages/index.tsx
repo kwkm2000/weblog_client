@@ -29,7 +29,6 @@ const Home: NextPage<Props> = ({ articles }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainLayout>
-        <h2 style={{ marginBottom: 20 }}>Posts</h2>
         <ArticleList articles={articles} />
       </MainLayout>
     </>

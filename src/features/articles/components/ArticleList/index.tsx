@@ -1,27 +1,44 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styles from "./index.module.css";
 import { Article } from "../../models";
-import dayjs from "dayjs";
-import Link from "next/link";
-import { formatDate } from "@/utility/formatDate";
+import ArticleListCard from "@/features/articles/components/ArticleListCard";
+import ArticleListFIrst from "@/features/articles/components/ArticleListFIrst";
 
 interface Props {
   articles: Article.Model[];
 }
 
 const ArticleList: React.FC<Props> = ({ articles }) => {
+  // const getFirstLineOFText = useCallback((article: Article.Model) => {
+  //   return article.text.find((text) => {
+  //     if (!text) {
+  //       return false;
+  //     }
+  //   });
+  // }, []);
+
   return (
     <div>
-      {articles.map((article) => {
-        return (
-          <div key={article.id} style={{ marginBottom: 20 }}>
-            <p>{formatDate(article.createdAt)}</p>
-            <p>
-              <Link href={`/article/${article.id}`}>{article.title}</Link>
-            </p>
-          </div>
-        );
-      })}
+      {articles.length && (
+        <div className={styles.articlesContainer}>
+          {articles.map((article, index) => {
+            return index === 0 ? (
+              <div key={article.id} className={styles.articleFirst}>
+                <div className={styles.desktop}>
+                  <ArticleListFIrst article={article} />
+                </div>
+                <div className={styles.mobile}>
+                  <ArticleListCard article={article} />
+                </div>
+              </div>
+            ) : (
+              <div key={article.id} className={styles.articleCard}>
+                <ArticleListCard article={article} />
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,7 +1,35 @@
-.wrapper {}
+.articlesContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 300px;
+  grid-gap: 24px;
+}
 
-.main {
-  max-width: 620px;
-  margin: 0 auto;
-  padding: 20px 10px;
+.articleFirst {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .articlesContainer {
+    grid-template-columns: auto;
+  }
+
+  .articleFirst {
+    grid-column-end: 1;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
 }
