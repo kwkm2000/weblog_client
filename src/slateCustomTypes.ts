@@ -3,6 +3,14 @@ import { BaseEditor } from "slate";
 import { ReactEditor } from "slate-react";
 import { HistoryEditor } from "slate-history";
 
+export type CustomText = { text: string; bold?: boolean };
+
+export type ImageElement = {
+  type: "image";
+  url: string;
+  children: CustomText[];
+};
+
 export type CustomElement =
   | {
       type:
@@ -17,14 +25,6 @@ export type CustomElement =
       children: CustomText[];
     }
   | ImageElement;
-
-export type ImageElement = {
-  type: "image";
-  url: string;
-  children: CustomText[];
-};
-
-export type CustomText = { text: string; bold?: boolean };
 
 declare module "slate" {
   interface CustomTypes {

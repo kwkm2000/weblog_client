@@ -4,12 +4,15 @@ import { Article } from "../../models";
 import Link from "next/link";
 import { formatDate } from "@/utility/formatDate";
 import Image from "next/image";
+import useGetFirstLine from "@/features/articles/components/hooks/useGetFirstLine";
 
 interface Props {
   article: Article.Model;
 }
 
 const ArticleListCard: React.FC<Props> = ({ article }) => {
+  const firstLine = useGetFirstLine(article);
+
   return (
     <div key={article.id} className={styles.articleListColumn}>
       <Link href={`/article/${article.id}`}>
@@ -24,6 +27,7 @@ const ArticleListCard: React.FC<Props> = ({ article }) => {
           </div>
         )}
         <p>{article.title}</p>
+        <p>{firstLine}</p>
         <p>{formatDate(article.createdAt)}</p>
       </Link>
     </div>
