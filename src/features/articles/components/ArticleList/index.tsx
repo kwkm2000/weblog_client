@@ -1,6 +1,6 @@
-import React, { useCallback } from "react";
+import React from "react";
 import styles from "./index.module.css";
-import { Article } from "../../models";
+import { Article } from "@/features/articles/models";
 import ArticleListCard from "@/features/articles/components/ArticleListCard";
 import ArticleListFIrst from "@/features/articles/components/ArticleListFIrst";
 
@@ -9,14 +9,6 @@ interface Props {
 }
 
 const ArticleList: React.FC<Props> = ({ articles }) => {
-  // const getFirstLineOFText = useCallback((article: Article.Model) => {
-  //   return article.text.find((text) => {
-  //     if (!text) {
-  //       return false;
-  //     }
-  //   });
-  // }, []);
-
   return (
     <div>
       {articles.length && (
