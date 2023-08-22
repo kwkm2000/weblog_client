@@ -11,3 +11,25 @@
   grid-row-start: 1;
   grid-row-end: 2;
 }
+
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .articlesContainer {
+    grid-template-columns: auto;
+  }
+
+  .articleFirst {
+    grid-column-end: 1;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+}

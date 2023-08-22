@@ -24,7 +24,12 @@ const ArticleList: React.FC<Props> = ({ articles }) => {
           {articles.map((article, index) => {
             return index === 0 ? (
               <div key={article.id} className={styles.articleFirst}>
-                <ArticleListFIrst article={article} />
+                <div className={styles.desktop}>
+                  <ArticleListFIrst article={article} />
+                </div>
+                <div className={styles.mobile}>
+                  <ArticleListCard article={article} />
+                </div>
               </div>
             ) : (
               <div key={article.id} className={styles.articleCard}>

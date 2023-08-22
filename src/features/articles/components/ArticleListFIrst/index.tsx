@@ -14,7 +14,7 @@ const ArticleListFIrst: React.FC<Props> = ({ article }) => {
   const firstLine = useGetFirstLine(article);
 
   return (
-    <div>
+    <>
       <Link href={`/article/${article.id}`} className={styles.link}>
         {!!article.headerImage && (
           <div className={styles.imageWrapper}>
@@ -32,7 +32,7 @@ const ArticleListFIrst: React.FC<Props> = ({ article }) => {
           <p>{formatDate(article.createdAt)}</p>
         </div>
       </Link>
-    </div>
+    </>
   );
 };
 

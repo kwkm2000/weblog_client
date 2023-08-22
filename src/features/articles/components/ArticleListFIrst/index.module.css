@@ -12,5 +12,8 @@
   object-fit: cover;
 }
 
-.text {
+@media screen and (max-width: 500px) {
+  .link {
+    display: block;
+  }
 }
