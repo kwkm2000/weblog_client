@@ -15,7 +15,11 @@ const ArticleListFIrst: React.FC<Props> = ({ article }) => {
 
   return (
     <>
-      <Link href={`/article/${article.id}`} className={styles.link}>
+      <Link
+        href={`/article/${article.id}`}
+        className={styles.link}
+        data-testid="article-link"
+      >
         {!!article.headerImage && (
           <div className={styles.imageWrapper}>
             <Image
@@ -27,7 +31,7 @@ const ArticleListFIrst: React.FC<Props> = ({ article }) => {
           </div>
         )}
         <div className={styles.text}>
-          <p>{article.title}</p>
+          <p data-testid="article-title">{article.title}</p>
           <p>{firstLine}</p>
           <p>{formatDate(article.createdAt)}</p>
         </div>

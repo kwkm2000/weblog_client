@@ -10,9 +10,9 @@ interface Props {
 
 const ArticleList: React.FC<Props> = ({ articles }) => {
   return (
-    <div>
+    <>
       {articles.length && (
-        <div className={styles.articlesContainer}>
+        <div className={styles.articlesContainer} data-testid="article-list">
           {articles.map((article, index) => {
             return index === 0 ? (
               <div key={article.id} className={styles.articleFirst}>
@@ -31,7 +31,7 @@ const ArticleList: React.FC<Props> = ({ articles }) => {
           })}
         </div>
       )}
-    </div>
+    </>
   );
 };
 
