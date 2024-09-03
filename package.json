@@ -20,7 +20,7 @@
     "react-dom": "18.2.0",
     "slate": "^0.94.1",
     "slate-history": "^0.93.0",
-    "slate-react": "^0.98.1",
+    "slate-react": "^0.110.0",
     "typescript": "5.2.2"
   },
   "devDependencies": {
